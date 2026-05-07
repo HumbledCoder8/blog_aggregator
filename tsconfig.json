@@ -6,9 +6,12 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "strict": true,
+    "ignoreDeprecations": "6.0",
     "moduleResolution": "Node",
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "types": ["node"]
   },
   "include": ["./src/**/*.ts"],
   "exclude": ["node_modules"]
