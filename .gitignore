@@ -1,0 +1,19 @@
+# Logs
+*.log
+logs/
+
+# Environment variables / secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Build output
+dist/
+build/
+out/
+target/
