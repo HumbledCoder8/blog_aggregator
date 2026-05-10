@@ -1,15 +1,14 @@
 import { readConfig } from "./config";
 import { setUser } from "./config";
 import { CommandsRegistry,registerCommand, runCommand } from "./commands/commands";
-import { handlerLogin } from "./commands/users";
+import { handlerLogin, handlerRegister } from "./commands/users";
 
-function main(){
-    //setUser("solar");
-    //console.log(readConfig());
+async function main(){
 
     const registry: CommandsRegistry = {};
     
     registerCommand(registry,"login", handlerLogin);
+    registerCommand(registry, "register",handlerRegister);
 
     const args = process.argv.slice(2);
 
@@ -23,7 +22,7 @@ function main(){
     const cmdArgs = args.slice(1);
 
     try{
-        runCommand(registry,command,...cmdArgs);
+       await runCommand(registry,command,...cmdArgs);
     }
 
     catch (error){
@@ -34,7 +33,7 @@ function main(){
     
 
     
-    
+    process.exit(0);
    
 
 }
