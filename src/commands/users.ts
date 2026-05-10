@@ -1,5 +1,6 @@
-import { setUser } from "src/config";
-import { createUser, getUser} from "src/lib/db/queries/users";
+import { setUser, readConfig } from "src/config";
+import { createUser, getUser, getUsers} from "src/lib/db/queries/users";
+
 
 export async function handlerLogin(cmdName:string, ...args:string[]){
 
@@ -37,4 +38,25 @@ export async function handlerRegister(cmdName:string, ...args:string[]){
     console.log(`New user has been set: `);
     console.log(createdUser);
 
+}
+
+export async function handlerGetUsers(cmdName:string){
+    const users = await getUsers();
+
+    const current =  readConfig().currentUserName;
+
+
+    for(const user of users){
+
+        if (current === user.name){
+            console.log(`* ${user.name} (current)`);
+
+        }
+
+        else{
+            console.log(`* ${user.name}`);
+        }
+
+        
+    }
 }

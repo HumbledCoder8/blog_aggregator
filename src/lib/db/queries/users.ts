@@ -18,6 +18,14 @@ export async function getUser(name:string){
 
 }
 
+export async function getUsers(){
+  const allUsers = await db
+  .select()
+  .from(users);
+
+  return allUsers;
+}
+
 export async function deleteUsers(){
     await db.delete(users);
 
