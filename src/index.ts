@@ -3,6 +3,7 @@ import { setUser } from "./config";
 import { CommandsRegistry,registerCommand, runCommand } from "./commands/commands";
 import { handlerLogin, handlerRegister, handlerGetUsers } from "./commands/users";
 import { handlerReset } from "./commands/reset"
+import { handlerAgg } from "./commands/aggregate";
 
 async function main(){
 
@@ -12,6 +13,7 @@ async function main(){
     registerCommand(registry, "register",handlerRegister);
     registerCommand(registry, "reset", handlerReset);
     registerCommand(registry, "users", handlerGetUsers);
+    registerCommand(registry, "agg", handlerAgg);
 
     const args = process.argv.slice(2);
 
